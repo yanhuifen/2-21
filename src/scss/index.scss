@@ -1,0 +1,98 @@
+@import "_minix.scss";
+@import "common.scss";
+.wrap {
+    width: 100%;
+    height: 100%;
+    @include box_flex;
+    @include direction(column);
+    font-size: pxTorem(18px);
+    header {
+        width: 100%;
+        height: pxTorem(50px);
+        @include box_flex;
+        @include justify(space-between);
+        padding: 0 pxTorem(10px);
+        @include sizing;
+        @include align;
+        input {
+            border: pxTorem(1px) solid #ccc;
+            height: pxTorem(35px);
+        }
+    }
+    section {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        ul {
+            width: 100%;
+            height: pxTorem(60px);
+            @include box_flex;
+            @include justify(space-around);
+            @include align;
+        }
+        ol {
+            background: #fff;
+            width: 100%;
+            height: pxTorem(100px);
+            @include box_flex;
+            @include justify(space-around);
+            @include align;
+            li {
+                dl {
+                    @include box_flex;
+                    @include direction(column);
+                    @include align;
+                    dt {
+                        width: pxTorem(85px);
+                        height: pxTorem(85px);
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .banner {
+            width: 100%;
+            margin-top: pxTorem(20px);
+            img {
+                width: 100%;
+            }
+        }
+        h2 {
+            width: 100%;
+            height: pxTorem(50px);
+            line-height: pxTorem(50px);
+            background: #fff;
+        }
+        .banner2 {
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    footer {
+        width: 100%;
+        height: pxTorem(70px);
+        background: #fff;
+        border-top: pxTorem(1px) solid #ccc;
+        @include box_flex;
+        @include align;
+        @include justify(space-around);
+        dl {
+            @include box_flex;
+            @include direction(column);
+            @include align;
+            dt {
+                width: pxTorem(35px);
+                height: pxTorem(35px);
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

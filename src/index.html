@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <img src="img/topl.PNG" alt="">
+            <span><input type="text" placeholder="请输入商品"></span>
+            <img src="img/topr.PNG" alt="">
+        </header>
+        <section>
+            <ul>
+                <!-- <li>推荐</li>
+                <li>推荐</li>
+                <li>推荐</li>
+                <li>推荐</li>
+                <li>推荐</li>
+                <li>推荐</li>
+                <li>推荐</li> -->
+            </ul>
+            <ol>
+                <!-- <li>
+                    <dl>
+                        <dt><img src="img/li1.PNG" alt=""></dt>
+                        <dd>￥569</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img src="img/li1.PNG" alt=""></dt>
+                        <dd>￥569</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img src="img/li1.PNG" alt=""></dt>
+                        <dd>￥569</dd>
+                    </dl>
+                </li> -->
+
+            </ol>
+            <div class="banner">
+                <!-- <img src="img/banner1.PNG" alt=""> -->
+            </div>
+            <h2>每日精选</h2>
+            <div class="banner2">
+                <!-- <img src="img/banner2.PNG" alt=""> -->
+            </div>
+        </section>
+        <footer>
+            <dl>
+                <dt><img src="img/shouye.PNG" alt=""></dt>
+                <dd>首页</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/fenlei.PNG" alt=""></dt>
+                <dd>分类</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/ggcar.PNG" alt=""></dt>
+                <dd>购物车</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/wode.PNG" alt=""></dt>
+                <dd>我的</dd>
+            </dl>
+        </footer>
+    </div>
+
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    var ol = document.querySelector('ol');
+    var banner1 = document.querySelector('.banner');
+    var banner2 = document.querySelector('.banner2');
+    var xml = new XMLHttpRequest;
+    xml.open('get', '/data', true);
+    xml.onload = function(res) {
+        var data = res.target.response;
+        var prodata = JSON.parse(data);
+        console.log(prodata);
+        //渲染导航
+        ul.innerHTML = prodata.ul.map(function(item) {
+                return `<li>${item.name}</li>`
+            }).join("")
+            //渲染dl
+        ol.innerHTML = prodata.dl.map(function(item) {
+                return `<li>
+                    <dl>
+                        <dt><img src=${item.img} alt=""></dt>
+                        <dd>${item.meony}</dd>
+                    </dl>
+                </li>`
+            }).join("")
+            //渲染第一个banner
+        banner1.innerHTML = prodata.banner1.map(function(item) {
+                return `<img src=${item.img} alt="">`
+            }).join("")
+            //渲染第二个banner
+        banner2.innerHTML = prodata.banner2.map(function(item) {
+            return `<img src=${item.img} alt="">`
+        }).join("")
+    }
+    xml.send();
+</script>
+
+</html>

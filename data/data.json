@@ -1,0 +1,18 @@
+{
+    "ul": [
+        { "name": "推荐" },
+        { "name": "手机" },
+        { "name": "智能" },
+        { "name": "电视" },
+        { "name": "电脑" },
+        { "name": "全面屏" },
+        { "name": "生活" }
+    ],
+    "dl": [
+        { "img": "img/li1.PNG", "meony": "￥596" },
+        { "img": "img/li2.PNG", "meony": "￥596" },
+        { "img": "img/li1.PNG", "meony": "￥596" }
+    ],
+    "banner1": [{ "img": "img/banner1.PNG" }],
+    "banner2": [{ "img": "img/banner2.PNG" }]
+}
